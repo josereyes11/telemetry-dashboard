@@ -1,0 +1,120 @@
+/* Your styles go here. Part 5 of the README. */
+:root {
+  --color-ok: #1f7a4d;
+  --color-warning: #a35c00;
+  --color-error: #b3261e;
+  --color-border: #d0d4da;
+  --radius: 8px;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  margin: 2rem;
+  color: #1c1f23;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.telemetry-card {
+  border: 1px solid var(--color-border);
+  border-left-width: 6px;
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+.telemetry-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.telemetry-card__value {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.telemetry-card__status {
+  margin: 0.5rem 0 0;
+  font-weight: 600;
+}
+
+.telemetry-card__status::before {
+  margin-right: 0.35rem;
+}
+
+.telemetry-card--ok {
+  border-left-color: var(--color-ok);
+}
+
+.telemetry-card--ok .telemetry-card__status {
+  color: var(--color-ok);
+}
+
+.telemetry-card--ok .telemetry-card__status::before {
+  content: "✓";
+}
+
+.telemetry-card--warning {
+  border-left-color: var(--color-warning);
+  border-left-style: dashed;
+}
+
+.telemetry-card--warning .telemetry-card__status {
+  color: var(--color-warning);
+}
+
+.telemetry-card--warning .telemetry-card__status::before {
+  content: "!";
+}
+
+.telemetry-card--out-of-range {
+  border-color: var(--color-error);
+  border-width: 2px;
+  border-left-width: 6px;
+  background: #fdf3f2;
+}
+
+.telemetry-card--out-of-range .telemetry-card__status {
+  color: var(--color-error);
+}
+
+.telemetry-card--out-of-range .telemetry-card__status::before {
+  content: "x";
+}
+
+.telemetry-card__range {
+  position: relative;
+  height: 6px;
+  margin-top: 0.75rem;
+  border-radius: 3px;
+  background: linear-gradient(
+    to right,
+    #f3d9b8 0 10%,
+    #e6e9ed 10% 90%,
+    #f3d9b8 90% 100%
+  );
+}
+
+.telemetry-card__marker {
+  position: absolute;
+  top: -4px;
+  width: 4px;
+  height: 14px;
+  border-radius: 2px;
+  background: #1c1f23;
+  transform: translateX(-50%);
+  transition: left 0.3s ease;
+}
+
+.telemetry-card__limits {
+  display: flex;
+  margin: 0.25rem 0 0;
+  font-size: 0.75rem;
+  color: #5b6168;
+}
